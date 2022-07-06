@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form action='' method="post">
+            {% csrf_token %}
+            <input type="text" name="city"><BR>
+            <input type="submit" value="SUBMIT">
+        </form>
+       <div>
+           {% if messages %}
+                {% for message in messages%}
+                    {{ message }}
+                {% endfor %}
+           {% endif %}
+           {% if city %}
+            <h5>City: {{ city}}</h5>
+            <h5>Country Code: {{ country_code }}</h5>
+            <h5>Coordinate: {{ coordinate }}</h5>
+            <h5>Temprature: {{ temp }}</h5>
+            <h5>Pressure: {{ pressure }}</h5>
+            <h5>Humidity: {{ humidity }}</h5>
+            <h5>Rain: {{ rain }}</h5>  
+           {% endif %}
+
+
+             
+       </div>
+        <script src="" async defer></script>
+    </body>
+</html>
