@@ -6,33 +6,42 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="" crossorigin="anonymous"></script>
     </head>
     <body>
-        <form action='' method="post">
+
+        <div class='text-center' >
+            <h1>Welcome to the Weather APP</h1>
+            <h3>Enter your city below</h3>
+             <form class="m-5 form-group" action='' method="post">
             {% csrf_token %}
-            <input type="text" name="city"><BR>
-            <input type="submit" value="SUBMIT">
+            <input class="form-control border-dark" type="text" name="city"><BR>
+            <input class="form-control btn-primary"  type="submit" value="SUBMIT">
         </form>
-       <div>
+    </div>
+       <div class="container mt-5">
            {% if messages %}
                 {% for message in messages%}
                     {{ message }}
                 {% endfor %}
            {% endif %}
            {% if city %}
-            <h5>City: {{ city}}</h5>
-            <h5>Country Code: {{ country_code }}</h5>
-            <h5>Coordinate: {{ coordinate }}</h5>
-            <h5>Temprature: {{ temp }}</h5>
-            <h5>Pressure: {{ pressure }}</h5>
-            <h5>Humidity: {{ humidity }}</h5>
-            <h5>Rain: {{ rain }}</h5>  
+           <table class="table table-striped table-dark">
+            <tr><td>City</td><td> {{ city}}</td></tr>
+            <tr><td>Country Code</td><td> {{ country_code }}</td></tr>
+            <tr><td>Coordinate</td><td> {{ coordinate }}</td></tr>
+            <tr><td>Temprature</td><td> {{ temp }}</td></tr>
+            <tr><td>Pressure</td><td> {{ pressure }}</td></tr>
+            <tr><td>Humidity</td><td> {{ humidity }}</td></tr>
+           </table>  
            {% endif %}
 
 
              
-       </div>
-        <script src="" async defer></script>
+      
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" async defer></script>
+        </div>
+       
     </body>
 </html>

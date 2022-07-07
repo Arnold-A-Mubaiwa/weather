@@ -29,4 +29,3 @@ def index(request):
             return render(request, 'weather/index.html',data)
     else:
         return render(request, 'weather/index.html')
-    
